@@ -22,7 +22,7 @@ Key columns include:
 ### Tasks Covered
 
 The certification exam involves several common SQL operations:
-**1. Identifying missing values
-2. Data cleaning and validation
-3. Calculating summary statistics
-4. Filtering data based on business conditions**
+- Identifying missing values
+- Data cleaning and validation
+- Calculating summary statistics
+- Filtering data based on business conditions
