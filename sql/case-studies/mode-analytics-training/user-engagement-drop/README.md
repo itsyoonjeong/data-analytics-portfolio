@@ -22,9 +22,9 @@ This analysis explores each hypothesis to identify the root cause of the engagem
 The dataset comes from the Mode SQL Tutorial.
 
 Key tables used:
-- 'yammer_users': user signup and activation information
-- 'yammer_events': user activity events such as login, messaging, and search
-- 'yammer_emails': email interactions including sent emails, opens, and clickthroughs
+- `yammer_users`: user signup and activation information
+- `yammer_events`: user activity events such as login, messaging, and search
+- `yammer_emails`: email interactions including sent emails, opens, and clickthroughs
 
 ### Analysis
 
