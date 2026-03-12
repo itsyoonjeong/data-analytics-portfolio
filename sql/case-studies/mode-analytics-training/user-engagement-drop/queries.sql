@@ -1,4 +1,6 @@
 -- Case study: Investigating a drop in user engagement
+
+-- Problem: Confirm the engagement drop
 SELECT DATE_TRUNC('week', e.occurred_at),
        COUNT(DISTINCT e.user_id) AS weekly_active_users
 FROM tutorial.yammer_events e
@@ -107,4 +109,5 @@ FROM (
           AND e1.action IN ('sent_weekly_digest', 'sent_reengagement_email')
     GROUP BY 1
     ) a
+
 ORDER BY 1;
