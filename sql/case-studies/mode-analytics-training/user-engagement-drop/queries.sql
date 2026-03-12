@@ -9,7 +9,7 @@ WHERE e.event_type = 'engagement'
 GROUP BY 1
 ORDER BY 1;
 
--- Step 1: Check whether the drop is related to user growth
+-- Step 1: Check whether the drop is caused by slower user growth
 SELECT DATE_TRUNC('day', created_at) AS day,
        COUNT(*) AS all_users,
        COUNT(CASE WHEN activated_at IS NOT NULL THEN user_id ELSE NULL END) AS activated_users
@@ -19,7 +19,7 @@ WHERE created_at >= '2014-05-01'
 GROUP BY 1
 ORDER BY 1;
 
--- Step 2: Check which segment of existing users was affected
+-- Step 2: Check whether engagement decreased among specific cohorts of existing users
 SELECT DATE_TRUNC('week', z.occurred_at) AS "week",
        AVG(z.age_at_event) AS "average age during week",
        COUNT(DISTINCT CASE WHEN z.user_age > 70 THEN z.user_id ELSE NULL END) AS "10+ weeks",
@@ -51,7 +51,7 @@ GROUP BY 1
 ORDER BY 1
 LIMIT 100;
 
--- Step 3: Check whether the issue is localized to a specific device
+-- Step 3: Check whether the issue is localized to a particular device
 SELECT DATE_TRUNC('week', occurred_at) AS week,
        COUNT(DISTINCT user_id) AS weekly_active_users,
        COUNT(DISTINCT CASE WHEN device IN ('dell inspiron desktop', 'macbook pro', 'asus chromebook', 'macbook air', 'lenovo thinkpad', 'mac mini',
@@ -69,7 +69,7 @@ GROUP BY 1
 ORDER BY 1
 LIMIT 100;
 
--- Step 4: Check whether digest emails are related to the issue
+-- Step 4: Check whether email interactions are related to the issue
 SELECT DATE_TRUNC('week', occurred_at) AS week,
        COUNT(CASE WHEN action = 'sent_weekly_digest' THEN user_id ELSE NULL END) AS weekly_emails,
        COUNT(CASE WHEN action = 'sent_reengagement_email' THEN user_id ELSE NULL END) AS reengagement_emails,
@@ -109,5 +109,5 @@ FROM (
           AND e1.action IN ('sent_weekly_digest', 'sent_reengagement_email')
     GROUP BY 1
     ) a
-
 ORDER BY 1;
+
