@@ -110,7 +110,7 @@ GROUP BY 1
 ORDER BY 1; -- 3.5 Analyze the distribution of search result positions receiving clicks
 
 
--- Step 4: Analyze user-level repeat search behavior
+-- Step 4: Analyze user-level repeat search behavior across sessions
 
 SELECT search_sessions,
        COUNT(*) AS users
@@ -136,4 +136,5 @@ FROM (
   ) z
 GROUP BY 1
 ORDER BY 1
+
 LIMIT 100; -- 4.2 Analyze the distribution of users by the number of sessions with autocompletes
