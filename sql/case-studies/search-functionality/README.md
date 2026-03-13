@@ -73,4 +73,4 @@ These patterns suggest that:
 - Autocomplete may provide a more efficient way for users to find results.
 - Search runs may require users to repeatedly refine their queries.
 - Search result ranking may not be fully optimized.
-- Therefore, improving the ranking algorithm or query understanding for full search runs may enhance the overall search experience on Yammer.
+- Improving the ranking algorithm or query understanding for full search runs may enhance the overall search experience on Yammer.
