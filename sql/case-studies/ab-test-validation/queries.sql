@@ -196,7 +196,7 @@ ON u.user_id = e.user_id
 GROUP BY 1
 ORDER BY 1;
 
--- Step 5: Compare post-treatment message postings by existing users across experiment groups
+-- Step 5: Re-examine post-treatment message postings by existing users across experiment groups
 
 SELECT c.experiment,
        c.experiment_group,
